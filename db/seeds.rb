@@ -12,6 +12,7 @@
       name: "test#{n + 1}",
       uid: "test#{n + 1}",
       password: "123456",
+      target_number: "",
     )
 end
 
@@ -22,3 +23,8 @@ User.all.each do |user|
     steps: "8000"
   )
 end
+
+Admin.create!(
+  email: "admin@gmail.com",
+  password: "000000"
+  )

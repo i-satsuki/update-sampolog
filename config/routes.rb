@@ -4,6 +4,15 @@ Rails.application.routes.draw do
   get 'charts/monthly'
   get '/events', to: 'events#index'
 
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+  }
+
+  namespace :admins do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, except: [:edit, :update, :new, :create]
+  end
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
