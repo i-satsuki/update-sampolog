@@ -1,0 +1,38 @@
+<div class="container" >
+	<div class="row">
+		<h2 class="text-center">ユーザー一覧</h2>
+	</div>
+
+	<div class="row">
+		<table class="admin_customer_index has_border table text-center">
+			<thead>
+				<th class="text-center">会員ID</th>
+				<th class="text-center">名前</th>
+				<th class="text-center">会員ステータス</th>
+				<th ></th>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+					<tr>
+						<td><%= user.id %></td>
+						<td><%= user.name %></td>
+						<td>
+							<% if user.is_deleted == false %>
+								<span class="text-active">有効</span>
+							<% else %>
+								<span class="text-invalid">退会済み</span>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="row">
+		<div class="text-center">
+			<%= paginate @users %>
+		</div>
+	</div>
+</div>
+

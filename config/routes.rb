@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admins do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index]
     resources :posts, except: [:edit, :update, :new, :create]
   end
 

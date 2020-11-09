@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :unsubscribe, :withdraw]
+  before_action :ensure_correct_user, only: [:unsubscribe, :withdraw]
   before_action :set_user, except: [:search]
 
   def show
