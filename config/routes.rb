@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions',
   }
 
-  namespace :admins do
+  namespace :admin do
     resources :users, only: [:index]
     resources :posts, except: [:edit, :update, :new, :create]
+    get 'search' => 'search#search'
   end
 
   devise_for :users
