@@ -2,6 +2,7 @@
 		<table class="admin_customer_index has_border table text-center">
 			<thead>
 				<th class="text-center">会員ID</th>
+				<th></th>
 				<th class="text-center">名前</th>
 				<th class="text-center">会員ステータス</th>
 				<th ></th>
@@ -10,6 +11,7 @@
 				<% users.each do |user| %>
 					<tr>
 						<td><%= user.id %></td>
+						<td><%= attachment_image_tag(@user, :profile_image, size: "40x40", fallback: "no_image.png", style: "border-radius: 50%;") %></td>
 						<td><%= link_to user.name, admin_user_path(user) %></td>
 						<td>
 							<% if user.is_deleted == false %>
