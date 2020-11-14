@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   get 'charts/monthly'
   get '/events', to: 'events#index'
 
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions',
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
   }
 
   namespace :admin do
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show, :update] do
+      member do
+        get "following"
+        get "follower"
+      end
+    end
     resources :posts, except: [:edit, :update, :new, :create]
     get 'search' => 'search#search'
   end
