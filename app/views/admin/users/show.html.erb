@@ -32,6 +32,13 @@
 				<label>１週間の目標達成率</label> <br>
 				<p class="achievement_rate text-center col-sm-3"><%= @achievement_rate %>％</p>
 			<% end %>
+
+			<label class="col-sm-9" style="padding: 0;">会員ステータス</label> <br>
+			<% if  @user.is_deleted == false %>
+				<%= link_to "無効に切り替える", invalid_admin_user_path(@user.id), method: :patch, class: "btn btn-danger col-sm-4" %>
+			<% elsif @user.is_deleted ==true %>
+				<%= link_to "有効に切り替える", valid_admin_user_path(@user.id), method: :patch, class: "btn btn-default col-sm-4" %>
+			<% end %>
 		</div>
 	</div>
 </div>

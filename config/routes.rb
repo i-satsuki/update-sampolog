@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users, only: [:index, :show, :update] do
+    resources :users, only: [:index, :show] do
       member do
         get "following"
         get "follower"
+        patch "valid"
+        patch "invalid"
       end
     end
     resources :posts, except: [:edit, :update, :new, :create]
@@ -29,7 +31,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
-    # 退会機能
     member do
       get "unsubscribe"
       patch "withdraw"

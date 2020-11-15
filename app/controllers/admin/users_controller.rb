@@ -18,6 +18,18 @@ class Admin::UsersController < ApplicationController
 	    end
 	end
 
+	def valid
+		if @user.update(is_deleted: false)
+	      redirect_to admin_user_path(@user), notice: "会員ステータスを「有効」に切り替えました！"
+	    end
+	end
+
+	def invalid
+		if @user.update(is_deleted: true)
+	      redirect_to admin_user_path(@user), notice: "会員ステータスを「無効」に切り替えました！"
+	    end
+	end
+
 	# 自分がフォローしているユーザー一覧
 	def following
 		@followings = @user.following_user.where(is_deleted: false)

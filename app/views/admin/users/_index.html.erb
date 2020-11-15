@@ -10,14 +10,14 @@
 			<tbody>
 				<% users.each do |user| %>
 					<tr>
-						<td><%= user.id %></td>
+						<td style="vertical-align: middle;"><%= user.id %></td>
 						<td><%= attachment_image_tag(@user, :profile_image, size: "40x40", fallback: "no_image.png", style: "border-radius: 50%;") %></td>
-						<td><%= link_to user.name, admin_user_path(user) %></td>
-						<td>
+						<td style="vertical-align: middle;"><%= link_to user.name, admin_user_path(user) %></td>
+						<td style="vertical-align: middle;">
 							<% if user.is_deleted == false %>
 								<span class="text-active">有効</span>
 							<% else %>
-								<span class="text-invalid">退会済み</span>
+								<span class="text-invalid">無効</span>
 							<% end %>
 						</td>
 					</tr>
