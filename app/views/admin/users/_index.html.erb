@@ -3,16 +3,15 @@
 			<thead>
 				<th class="text-center">会員ID</th>
 				<th></th>
-				<th class="text-center">名前</th>
+				<th>会員名</th>
 				<th class="text-center">会員ステータス</th>
-				<th ></th>
 			</thead>
 			<tbody>
 				<% users.each do |user| %>
 					<tr>
 						<td style="vertical-align: middle;"><%= user.id %></td>
-						<td><%= attachment_image_tag(@user, :profile_image, size: "40x40", fallback: "no_image.png", style: "border-radius: 50%;") %></td>
-						<td style="vertical-align: middle;"><%= link_to user.name, admin_user_path(user) %></td>
+						<td class="text-right"><%= attachment_image_tag(@user, :profile_image, size: "40x40", fallback: "no_image.png", style: "border-radius: 50%;") %></td>
+						<td  style="vertical-align: middle;"><%= link_to user.name, admin_user_path(user) %></td>
 						<td style="vertical-align: middle;">
 							<% if user.is_deleted == false %>
 								<span class="text-active">有効</span>
