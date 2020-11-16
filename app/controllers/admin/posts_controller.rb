@@ -2,7 +2,13 @@ class Admin::PostsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@posts = Post.page(params[:page]).per(10)
+		# ユーザー詳細から遷移した投稿一覧（ユーザーごと）とヘッダーから遷移した投稿一覧（全部）
+		if params["user"]
+			@user = User.find_by(id: params[:user])
+	    	@posts = @user.posts.page(params[:page]).per(10)
+    	else
+			@posts = Post.page(params[:page]).per(10)
+		end
 	end
 
 	def show
