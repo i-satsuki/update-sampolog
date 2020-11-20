@@ -70,26 +70,26 @@
       </div>
     </nav>
 
-    <% if user_signed_in? %>
-      <div class="search" >
-        <%= form_tag(search_path, method: :get) do %>
-          <%= text_field_tag 'search[content]', "", placeholder: 'ユーザーIDを入力' %>
-          <%= button_tag type: 'submit' do %>
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <div class="search col-sm-4">
+      <% if user_signed_in? %>
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag 'search[content]', "", placeholder: 'ユーザーIDを入力' %>
+            <%= button_tag type: 'submit' do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    <% if admin_signed_in? %>
-      <div class="search" >
-        <%= form_tag(admin_search_path, method: :get) do %>
-          <%= text_field_tag 'search[content]', "", placeholder: 'ユーザー名を入力' %>
-          <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
-          <%= button_tag type: 'submit' do %>
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </div>
+      <% end %>
+      <% if admin_signed_in? %>
+          <%= form_tag(admin_search_path, method: :get) do %>
+            <%= text_field_tag 'search[content]', "", placeholder: 'ユーザー名を入力' %>
+            <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+            <%= button_tag type: 'submit' do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
 </header>
