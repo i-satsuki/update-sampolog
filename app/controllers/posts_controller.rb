@@ -16,9 +16,17 @@ class PostsController < ApplicationController
   end
 
   def index
-    # ユーザーごとに投稿一覧を表示させる
     @user = User.find_by(id: params[:user]) || current_user
-    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(6)
+
+    if params["user"]
+      # ユーザーごとに投稿一覧を表示させる
+      @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(6)
+    else
+      #タイムライン
+      user = Relationship.where(follower_id: current_user.id).pluck(:followed_id).push(current_user)
+      @posts = Post.where(id: user).order(created_at: :desc).page(params[:page]).per(6)
+    end
+
     # 退会ユーザーの投稿ページは表示しない
     redirect_to posts_path if @user.is_deleted
   end
