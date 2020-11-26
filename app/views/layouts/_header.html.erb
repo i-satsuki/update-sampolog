@@ -35,18 +35,18 @@
         <ul class="list-group list-group-horizontal">
           <% if user_signed_in? %>
             <li>
+              <%= link_to posts_path do %>
+                <span class="material-icons">home</span><span>ホーム</span>
+              <% end %>
+            </li>
+            <li>
               <%= link_to user_path(current_user) do %>
-                <span class="material-icons">account_circle</span><span>マイページ</span>
+                <span class="material-icons">account_circle</span><span>プロフィール</span>
               <% end %>
             </li>
             <li>
               <%= link_to new_post_path do %>
                 <span class="material-icons">add_photo_alternate</span><span>投稿する</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to posts_path do %>
-                <span class="material-icons">view_module</span><span>投稿リスト</span>
               <% end %>
             </li>
             <li>
