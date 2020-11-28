@@ -29,7 +29,7 @@
 	padding-bottom: 16px;
 	margin-bottom: 24px;
 	background: #fff;
-	box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+	box-shadow: 0 2px 10px rgba(0,0,0,0.07);
 }
 .post-image{
 	margin-bottom: 8px;
@@ -39,10 +39,15 @@
 	white-space:nowrap;
 	overflow:hidden;
 	text-overflow: ellipsis;
-	text-align: left;
 	font-size: 18px;
 	color: #333;
-	vertical-align: top;
+}
+.post-username{
+	display: inline-block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
 }
 .paginate{
 	margin-bottom: 40px;
@@ -58,6 +63,9 @@
   border-radius: 3px;
   font-size: 18px;
   overflow: scroll;
+}
+.post-show-username{
+	margin-left: 10px;
 }
 .steps-box{
 	position: relative;

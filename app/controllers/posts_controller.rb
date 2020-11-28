@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(6)
     else
       #タイムライン
-      user = Relationship.where(follower_id: current_user.id).pluck(:followed_id).push(current_user)
+      user = Relationship.where(follower_id: current_user.id).pluck(:followed_id).push(current_user.id)
       @posts = Post.where(id: user).order(created_at: :desc).page(params[:page]).per(6)
     end
 
