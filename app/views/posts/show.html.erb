@@ -8,6 +8,9 @@
 			<span class="material-icons">calendar_today</span>
 			<!-- I18n.lは日時フォーマットのメソッド -->
 			<%= I18n.l @post.created_at, format: :short, class: "post-time" %>
+			<%= link_to user_path(@post.user) do %>
+				<span class="post-show-username"><%= @post.user.name %></span>
+			<% end %>
 		</div>
 	</div>
 
