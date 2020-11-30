@@ -16,13 +16,20 @@
 	margin-top: 24px;
 }
 .achievement_rate{
-  margin-top: 40px;
+  padding: 0.5em 1em;
+  margin: 3em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   p{
     display: inline-block;
+    margin: 0;
+    padding: 0;
   }
 }
 .calendar{
-  margin: 80px 0 24px;
+  margin: 60px 0 24px;
   a{
     font-size: 18px;
     &:hover{

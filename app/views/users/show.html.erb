@@ -4,12 +4,10 @@
 	</div>
 
 	<div class="row">
-		<div class="col-sm-3">
-			<div class="text-center">
-				<%= attachment_image_tag(@user, :profile_image, size: "200x200", fallback: "no_image.png", style: "border-radius: 50%;") %>
-			</div>
+		<div class="col-sm-3 text-center">
+			<%= attachment_image_tag(@user, :profile_image, size: "200x200", fallback: "no_image.png", style: "border-radius: 50%;") %>
 
-			<div class="follow-count text-center">
+			<div class="follow-count">
 				<strong id='following-count_<%= @user.id %>'>
 					<%= link_to "#{ @followings.count }", following_user_path(@user) %>
 				</strong>
@@ -19,6 +17,15 @@
 					<%= link_to "#{ @followers.count }", follower_user_path(@user) %>
 				</strong>
 				<span>フォロワー</span> <br>
+			</div>
+
+			<div class="col-sm-12 calendar">
+				<span class="material-icons">event_note</span>
+				<%= link_to 'カレンダー', events_path %>
+			</div>
+			<div class="col-sm-12 ranking">
+				<span class="material-icons">format_list_numbered</span>
+				<%= link_to 'ランキング', charts_monthly_path %>
 			</div>
 		</div>
 		<div class="col-sm-9">
@@ -38,29 +45,15 @@
 			<% else %>
 				<%= link_to '編集する', edit_user_path(@user), class: "btn btn-default edit-btn col-sm-3" %>
 				<%= link_to '投稿リストを見る', posts_path(user: @user.id), class: "btn btn-info col-sm-3" %>
+				<div class="col-sm-7 achievement_rate">
+					<p>１週間の目標達成率：</p>
+					<% if @user.target_number == nil %>
+						<p>編集画面から１週間の目標歩数を設定してください。</p>
+					<% else %>
+						<p><%= @achievement_rate %>％</p>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
 	</div>
-
-	<% if @user.id == current_user.id %>
-		<div class="row">
-			<div class="col-sm-9 col-sm-offset-3 achievement_rate">
-				<span class="material-icons">check</span>
-				<p>１週間の目標達成率：</p>
-				<% if @user.target_number == nil %>
-					<p>編集画面から１週間の目標歩数を設定してください。</p>
-				<% else %>
-					<p><%= @achievement_rate %>％</p>
-				<% end %>
-			</div>
-			<div class="col-sm-6 col-sm-offset-3 calendar">
-				<span class="material-icons">event_note</span>
-				<%= link_to 'カレンダー', events_path %>
-			</div>
-			<div class="col-sm-6 col-sm-offset-3 ranking">
-				<span class="material-icons">format_list_numbered</span>
-				<%= link_to 'ランキング', charts_monthly_path %>
-			</div>
-		</div>
-	<% end %>
 </div>
