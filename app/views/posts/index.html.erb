@@ -12,12 +12,14 @@
 							<%= attachment_image_tag(post, :image, size: "200x200", fallback: "no_image.png", class: "post-image") %> <br>
 						<% end %>
 						<%= link_to user_path(post.user) do %>
-							<p class="post-username col-xs-7">
+							<p class="post-username col-xs-7 col-xs-offset-1 text-left">
 								<%= attachment_image_tag(@user, :profile_image, size: "25x25", fallback: "no_image.png", style: "border-radius: 50%;") %>
 								<%= post.user.name %>
 							</p>
 						<% end %>
-						<%= render 'favorites/favorite-button', post: post %>
+						<div class="text-left">
+							<%= render 'favorites/favorite-button', post: post %>
+						</div>
 					</div>
 				</div>
 			<% end %>
