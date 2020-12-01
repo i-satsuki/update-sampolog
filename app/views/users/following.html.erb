@@ -7,7 +7,7 @@
 			<% @followings.each do |following| %>
 				<div class="relationship-list">
 					<div class="row">
-						<div class="col-sm-offset-3 col-sm-3 following">
+						<div class="col-sm-offset-3 col-sm-4 following">
 							<%= link_to user_path(following), class: "user_#{following.id}" do %>
 								<%= attachment_image_tag(following, :profile_image, size: "50x50", fallback: "no_image.png", style: "border-radius: 50%;", class: " relationship-profile-image") %>
 							<% end %>
@@ -16,7 +16,7 @@
 								<%= following.name %>
 							<% end %>
 						</div>
-						<div class="col-sm-offset-1 col-sm-5 following">
+						<div class="col-sm-offset-1 col-sm-4 following">
 							<% if following.id != current_user.id %>
 								<span id='follow-button_<%= @user.id %>'>
 									<!-- 「remote: true」を付与する事で、JavaScriptファイルを呼び出せる様になる。 -->

@@ -146,9 +146,6 @@ footer{
 		color: #fff;
 		background-color: #33691E;
 	}
-	&.edit-btn{
-	  margin-right: 24px;
-	}
 	&.update-btn{
 	  margin-top: 40px;
 	  margin-bottom: 40px;
@@ -206,6 +203,7 @@ footer{
 // 投稿一覧ボタン
 .btn-info{
   background-color: #8ac6d1;
+  margin-left: 24px;
 }
 // 削除、退会ボタン
 .btn-danger{
