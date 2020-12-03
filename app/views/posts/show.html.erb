@@ -33,10 +33,10 @@
 
 	<div class="row">
 		<% if @post.user == current_user %>
-			<div class="col-sm-offset-10">
+			<div class="col-sm-12">
 				<div class="edit-and-destroy">
-					<%= link_to "編集する", edit_post_path(@post), class: "btn btn-default edit_post_#{@post.id}" %>
-					<%= link_to "削除する", post_path(@post), method: :delete, "data-confirm" => "OKを押すと削除されます。本当によろしいですか？", class: "btn btn-danger trash-btn" %>
+					<%= link_to "編集する", edit_post_path(@post), class: "btn btn-default edit_post_#{@post.id} col-xs-3" %>
+					<%= link_to "削除する", post_path(@post), method: :delete, "data-confirm" => "OKを押すと削除されます。本当によろしいですか？", class: "btn btn-danger trash-btn col-xs-3" %>
 				</div>
 			</div>
 		<% end %>
