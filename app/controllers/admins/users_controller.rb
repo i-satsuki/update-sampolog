@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admins::UsersController < ApplicationController
 	before_action :authenticate_admin!
 	before_action :set_user, except: [:index]
 
@@ -20,13 +20,13 @@ class Admin::UsersController < ApplicationController
 
 	def valid
 		if @user.update(is_deleted: false)
-	      redirect_to admin_user_path(@user), notice: "会員ステータスを「有効」に切り替えました！"
+	      redirect_to admins_user_path(@user), notice: "会員ステータスを「有効」に切り替えました！"
 	    end
 	end
 
 	def invalid
 		if @user.update(is_deleted: true)
-	      redirect_to admin_user_path(@user), notice: "会員ステータスを「無効」に切り替えました！"
+	      redirect_to admins_user_path(@user), notice: "会員ステータスを「無効」に切り替えました！"
 	    end
 	end
 

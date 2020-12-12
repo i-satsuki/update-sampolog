@@ -1,4 +1,4 @@
-class Admin::SearchController < ApplicationController
+class Admins::SearchController < ApplicationController
   before_action :authenticate_admin!
 
   def search

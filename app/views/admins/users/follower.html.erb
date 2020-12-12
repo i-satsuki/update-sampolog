@@ -8,11 +8,11 @@
 				<div class="relationship-list">
 					<div class="row">
 						<div class="follower text-center">
-							<%= link_to admin_user_path(follower), class: "user_#{follower.id}" do %>
+							<%= link_to admins_user_path(follower), class: "user_#{follower.id}" do %>
 								<%= attachment_image_tag(follower, :profile_image, size: "50x50", fallback: "no_image.png", style: "border-radius: 50%;", class: " relationship-profile-image") %>
 							<% end %>
 
-							<%= link_to admin_user_path(follower), class: "user_#{follower.id} relationship-name" do %>
+							<%= link_to admins_user_path(follower), class: "user_#{follower.id} relationship-name" do %>
 								<%= follower.name %>
 							<% end %>
 						</div>

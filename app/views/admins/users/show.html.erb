@@ -11,17 +11,17 @@
 
 			<div class="follow-count text-center">
 				<strong id='following-count_<%= @user.id %>'>
-					<%= link_to "#{ @followings.count }", following_admin_user_path(@user) %>
+					<%= link_to "#{ @followings.count }", following_admins_user_path(@user) %>
 				</strong>
 				<span>フォロー</span>
 				<span>|</span>
 				<strong id='follower-count_<%= @user.id %>}'>
-					<%= link_to "#{ @followers.count }", follower_admin_user_path(@user) %>
+					<%= link_to "#{ @followers.count }", follower_admins_user_path(@user) %>
 				</strong>
 				<span>フォロワー</span> <br>
 			</div>
 			<br>
-			<p class="text-center"><%= link_to '投稿リストを見る', admin_posts_path(user: @user.id) %></p>
+			<p class="text-center"><%= link_to '投稿リストを見る', admins_posts_path(user: @user.id) %></p>
 		</div>
 		<div class="col-sm-9">
 			<label>自己紹介</label>
@@ -37,9 +37,9 @@
 
 			<label class="col-sm-9" style="padding: 0;">会員ステータス</label> <br>
 			<% if  @user.is_deleted == false %>
-				<%= link_to "無効に切り替える", invalid_admin_user_path(@user.id), method: :patch, class: "btn btn-danger col-sm-4" %>
+				<%= link_to "無効に切り替える", invalid_admins_user_path(@user.id), method: :patch, class: "btn btn-danger col-sm-4" %>
 			<% elsif @user.is_deleted ==true %>
-				<%= link_to "有効に切り替える", valid_admin_user_path(@user.id), method: :patch, class: "btn btn-default col-sm-4" %>
+				<%= link_to "有効に切り替える", valid_admins_user_path(@user.id), method: :patch, class: "btn btn-default col-sm-4" %>
 			<% end %>
 		</div>
 	</div>

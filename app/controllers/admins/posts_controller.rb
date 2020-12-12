@@ -1,4 +1,4 @@
-class Admin::PostsController < ApplicationController
+class Admins::PostsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
@@ -19,6 +19,6 @@ class Admin::PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-    	redirect_to admin_posts_path, notice: "削除に成功しました！"
+    	redirect_to admins_posts_path, notice: "削除に成功しました！"
 	end
 end

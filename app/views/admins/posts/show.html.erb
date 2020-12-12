@@ -25,7 +25,7 @@
 
 			<span class="material-icons">favorite</span><%= @post.favorites.count%>
 			<span class="material-icons comment">mode_comment</span><%= @post.comments.count %>
-			<%= link_to "削除する", admin_post_path(@post), method: :delete, "data-confirm" => "OKを押すと削除されます。本当によろしいですか？", class: "btn btn-danger trash-btn" %>
+			<%= link_to "削除する", admins_post_path(@post), method: :delete, "data-confirm" => "OKを押すと削除されます。本当によろしいですか？", class: "btn btn-danger trash-btn" %>
 		</div>
 	</div>
 

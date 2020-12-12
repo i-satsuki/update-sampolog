@@ -19,7 +19,7 @@
         </div>
       <% elsif admin_signed_in? %>
         <div class="col-sm-4">
-          <%= form_tag(admin_search_path, method: :get) do %>
+          <%= form_tag(admins_search_path, method: :get) do %>
             <%= text_field_tag 'search[content]', "", placeholder: 'ユーザー名を入力' %>
             <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
             <%= button_tag type: 'submit' do %>
@@ -56,12 +56,12 @@
             </li>
           <% elsif admin_signed_in? %>
             <li>
-              <%= link_to admin_users_path do %>
+              <%= link_to admins_users_path do %>
               <span class="material-icons">people</span><span>会員一覧</span>
               <% end %>
             </li>
             <li>
-              <%= link_to admin_posts_path do %>
+              <%= link_to admins_posts_path do %>
                 <span class="material-icons">list</span><span>投稿一覧</span>
               <% end %>
             </li>
